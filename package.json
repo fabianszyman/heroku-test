@@ -6,11 +6,12 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-cleanup": "npx playwright-chromium install"
+    "heroku-cleanup": "npx puppeteer install"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "puppeteer-core": "^14.3.0"
   }
 }
