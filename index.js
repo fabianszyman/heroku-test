@@ -2,13 +2,16 @@ const express = require('express');
 const app = express();
 const port = 1000
 
-const { chromium } = require("playwright-chromium");
+const { puppeteer } = require("puppeteer");
 
 // express Settings
 app.get('/', function (req, res) {
     console.log('This is a Console Log');
     (async () => {
-        const browser = await chromium.launch({ chromiumSandbox: false });
+        const browser = await puppeteer.launch({
+            headless: true,
+            args: ['--no-sandbox','--disable-setuid-sandbox']
+        })
         const context = await browser.newContext();
         const page = await context.newPage();
         await page.goto('http://whatsmyuseragent.org/');
